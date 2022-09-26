@@ -8,33 +8,90 @@
   
   <title>Frontend Mentor | E-commerce product page</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+  <header class="header-bg">
+    <div class="header container">
+      <div class="logo">
+        <img src="/images/logo.svg" alt="Logo">
+      </div>
+      <nav class="menu-nav">
+        <ul class="menu">
+          <li><a href="">Collections</a></li>
+          <li><a href="">Men</a></li>
+          <li><a href="">Women</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="pessoal">
+        <div class="cart">
+          <img src="/images/icon-cart.svg" alt="Carrinho">
+        </div>
+        <div class="avatar">
+          <img src="./images/image-avatar.png" alt="Avatar">
+        </div>
+      </div>
+    </div>
+  </header>
 
-  Sneaker Company
+  <main class="product-bg">
+    <div class="product container">
+      <div class="product-images">
+        <div class="product-img-main">
+          <img src="/images/image-product-1.jpg" alt="Tênis">
+        </div>
+        <div class="product-img-secondary">
+          <img src="/images/image-product-1-thumbnail.jpg" alt="Tênis">
+          <img src="/images/image-product-2-thumbnail.jpg" alt="Tênis">
+          <img src="/images/image-product-3-thumbnail.jpg" alt="Tênis">
+          <img src="/images/image-product-4-thumbnail.jpg" alt="Tênis">
+        </div>
+      </div>
 
-  Fall Limited Edition Sneakers
+      <div class="product-informations">
+        <p class="product-company cor-p1">Sneaker Company</p>
+        <h1 class="product-title cor-s1">Fall Limited Edition Sneakers</h1>
+        <p class="product-description cor-s2">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        <div class="product-price">
+          <div class="price">
+            <span class="price-total">$125.00</span>
+          <span class="price-discount cor-p1">50%</span>
+          </div>
+          <p class="price-previous cor-s3">$250.00</p>
+        </div>
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart
+        <div class="product-cart">
+          <div class="product-quantity">
+            <button id="product-less" class="btn-input">
+              <img src="/images/icon-minus.svg" alt="-">
+            </button>
+            <span id="quantity-amount">0</span>
+            <button id="product-more" class="btn-input">
+              <img src="./images/icon-plus.svg" alt="+">
+            </button>
+          </div>
+          <button id="btn-buy" class="product-addToCard btn">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
