@@ -101,3 +101,26 @@ function clearCart() {
   cartProduct.innerHTML = cartEmpety.outerHTML;
   cartNumber.classList.remove('active');
 }
+
+//------------------------------------------------
+//Slide images
+
+const imageMain = document.querySelector('.product-img-main img');
+const images = document.querySelectorAll('.img-slide');
+
+
+images.forEach((img) => {
+  img.addEventListener('click', changeImage)
+})
+
+
+function changeImage(event){
+  const oldSrc = this.firstElementChild.getAttribute('src');
+  const src = oldSrc.replace("-thumbnail", "");
+
+  images.forEach(img => img.classList.remove('active'));
+  this.classList.add('active')
+  //imageMain.classList.toggle('ativo');
+
+  imageMain.src = src
+}
