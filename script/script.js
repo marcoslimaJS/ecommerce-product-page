@@ -136,7 +136,7 @@ function changeImage(){
   if(this.className.includes('img-modal')) {
     imagesModal.forEach(img => img.classList.remove('active'));
     imageMainModal.src = src;
-    counterModal = this.firstElementChild.id - 1;
+    counterModal = this.firstElementChild.className - 1;
   }else {
     images.forEach(img => img.classList.remove('active'));
     imageMain.src = src;
