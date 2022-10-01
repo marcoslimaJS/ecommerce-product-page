@@ -165,7 +165,6 @@ img {
     display: none;
     flex-direction: column;
     width: 70%;
-    height: 1200px;
     position: absolute;
     top: 0px;
     left: -20px;
@@ -193,6 +192,11 @@ img {
   }
 }
 
+@media(min-width: 801px) {
+  .menu {
+    height: initial !important;
+  }
+}
 
 @keyframes showMenu {
   from {

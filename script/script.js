@@ -6,7 +6,8 @@ btnMenu.addEventListener('click', openMobileMenu);
 
 function openMobileMenu() {
   menu.classList.toggle('active');
-
+  const menuUl = menu.querySelector('.menu');
+  menuUl.style.height = `${document.body.scrollHeight}px`;
   if(btnMenu.firstChild.src.includes("open")) {
     btnMenu.firstChild.src = './images/icon-menu-close.svg';
   } else {
