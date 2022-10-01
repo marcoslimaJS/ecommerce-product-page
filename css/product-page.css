@@ -24,12 +24,13 @@
   position: relative;
 }
 
-.product-img-main img {
+.img-main {
   border-radius: 20px;
 }
-.product-img-main img.ativo {
-  /*animation: slideImage .5s forwards;*/
-}
+/*
+.img-main.ativo {
+  animation: slideImage .5s forwards;
+}*/
 
 .product-img-secondary {
   display: flex;
@@ -38,6 +39,7 @@
 
 .img-slide {
   max-width: 80px;
+  max-height: 80px;
   border-radius: 13px;
   cursor: pointer;
 }
@@ -150,23 +152,65 @@
 }
 
 .btn-slide {
+  display: none;
   position: absolute;
   top: 50%;
-  padding: 20px;
+  padding: 14px 17px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .btn-slide.previous{
-  left: 30px;
+  left: 15px;
 }
 
 .btn-slide.next{
-  right: 30px;
+  right: 15px;
+}
+
+
+/*Modal images*/
+.product-images.modal {
+  display: none;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100%;
+  padding-top: 130px;
+  z-index: 10;
+  
+}
+.product-images.modal.active {
+  display: flex;
+}
+.modal .product-img-main, .product-img-secondary {
+  margin: 0 auto;
+  animation: showModal .5s forwards;
+}
+.modal .btn-slide {
+  display: block;
+}
+.img-slide.img-modal {
+  background-color: #FFF;
+}
+
+.btn-close-modal {
+  display: none;
+}
+.modal .btn-close-modal {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: -40px;
+  padding: 0px;
+  background: rgba(0, 0, 0, 0.0);
+}
+.modal .btn-close-modal img{
+  padding: 0px;
+  width: 24px;
 }
 
 /*Medias*/
-
-
 @media(max-width: 900px) {
   .product-images {
     gap: 20px;
@@ -197,10 +241,19 @@
   .product-img-secondary {
     display: none;
   }
+  .btn-slide {
+    display: block;
+  }
   .product-informations {
     justify-self: center;
     max-width: initial;
     padding: 0 20px;
+  }
+  .product-images.modal {
+    display: none;
+  }
+  .product-images.modal.active {
+    display: none;
   }
 }
 
@@ -219,6 +272,17 @@
 }
 
 @keyframes slideImage {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -80px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+@keyframes showModal {
   from {
     opacity: 0;
     transform: translate3d(0, -80px, 0);

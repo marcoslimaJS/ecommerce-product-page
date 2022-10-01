@@ -104,23 +104,122 @@ function clearCart() {
 
 //------------------------------------------------
 //Slide images
-
-const imageMain = document.querySelector('.product-img-main img');
+const imageMain = document.querySelector('.img-main');
 const images = document.querySelectorAll('.img-slide');
 
+const header = document.querySelector('.header-bg');
+const sectionImages = document.querySelector('.product-images');
+const modal = sectionImages.cloneNode(true);
+document.body.insertBefore(modal, header);
+modal.classList.add('modal');
+const btnCloseModal = document.querySelector('.modal .btn-close-modal');
+
+const imageMainModal = document.querySelector('.modal .img-main');
+const imagesModal = document.querySelectorAll('.modal .img-slide');
 
 images.forEach((img) => {
-  img.addEventListener('click', changeImage)
-})
+  img.addEventListener('click', changeImage);
+});
+
+imagesModal.forEach((img) => {
+  img.classList.add('img-modal');
+  img.addEventListener('click', changeImage);
+});
 
 
 function changeImage(event){
   const oldSrc = this.firstElementChild.getAttribute('src');
   const src = oldSrc.replace("-thumbnail", "");
 
-  images.forEach(img => img.classList.remove('active'));
+  if(this.className.includes('img-modal')) {
+    imagesModal.forEach(img => img.classList.remove('active'));
+    imageMainModal.src = src;
+  }else {
+    images.forEach(img => img.classList.remove('active'));
+    imageMain.src = src;
+  }
   this.classList.add('active')
-  //imageMain.classList.toggle('ativo');
+}
 
-  imageMain.src = src
+//---------------------------------------
+//Slide images with btn
+const btnSlidePrevious = document.querySelectorAll('.btn-slide.previous')[1];
+const btnSlideNext = document.querySelectorAll('.btn-slide.next')[1];
+const srcMainImages = [
+  '/images/image-product-1.jpg',
+  '/images/image-product-2.jpg',
+  '/images/image-product-3.jpg',
+  '/images/image-product-4.jpg'
+];
+
+btnSlideNext.addEventListener('click', nextImage);
+let counter = 0;
+let counterModal = 0;
+
+function nextImage() {
+  //for mobile
+  if(!this.className.includes('btn-modal')) {
+    if(counter < srcMainImages.length - 1) {
+      counter += 1;
+      
+    };
+    imageMain.src = srcMainImages[counter];
+  }
+
+  //for modal
+  if(this.className.includes('btn-modal')) {
+    if(counterModal < srcMainImages.length - 1) {
+      counterModal += 1;
+    };
+    
+    imageMainModal.src = srcMainImages[counterModal];
+  };
+};
+
+btnSlidePrevious.addEventListener('click', previousImage);
+
+function previousImage() {
+  //for mobile
+  if(this.className.includes('btn-modal') === false) {
+    if(counter > 0) {
+      counter -= 1;
+    };
+    imageMain.src = srcMainImages[counter];
+  }
+
+  //for modal
+  if(this.className.includes('btn-modal')) {
+    if(counterModal > 0) {
+      counterModal -= 1;
+    };
+    
+    imageMainModal.src = srcMainImages[counterModal];
+  };
+};
+
+//---------------------------------------------------
+
+btnCloseModal.addEventListener('click', closeModalSlide )
+
+imageMain.addEventListener('click', openModalSlide);
+
+function openModalSlide() {
+  const small = window.matchMedia('(min-width: 761px)');
+  if(small.matches) {
+    modal.classList.add('active');
+    modal.style.height = `${document.body.scrollHeight}px`;
+
+    const btnModalPrevious = document.querySelector('.modal .btn-slide.previous');
+    const btnModalNext = document.querySelector('.modal .btn-slide.next');
+
+    btnModalNext.classList.add('btn-modal');
+    btnModalPrevious.classList.add('btn-modal');
+
+    btnModalNext.addEventListener('click', nextImage);
+    btnModalPrevious.addEventListener('click', previousImage);
+  };
+};
+
+function closeModalSlide() {
+  modal.classList.remove('active');
 }
