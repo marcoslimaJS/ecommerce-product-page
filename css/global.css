@@ -137,6 +137,7 @@ img {
   border: none;
   background: none;
   display: none;
+  cursor: pointer;
 }
 
 
@@ -230,6 +231,7 @@ img {
 
 .cart {
   position: relative;
+  cursor: pointer;
 }
 
 #cart-number {

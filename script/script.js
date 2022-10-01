@@ -127,7 +127,7 @@ imagesModal.forEach((img) => {
 });
 
 
-function changeImage(event){
+function changeImage(){
   const oldSrc = this.firstElementChild.getAttribute('src');
   const src = oldSrc.replace("-thumbnail", "");
 
@@ -137,8 +137,12 @@ function changeImage(event){
   }else {
     images.forEach(img => img.classList.remove('active'));
     imageMain.src = src;
+    imageMain.classList.add('anima');
   }
-  this.classList.add('active')
+  this.classList.add('active');
+  setTimeout(() => {
+    imageMain.classList.remove('anima');
+  }, 300);
 }
 
 //---------------------------------------
@@ -161,9 +165,12 @@ function nextImage() {
   if(!this.className.includes('btn-modal')) {
     if(counter < srcMainImages.length - 1) {
       counter += 1;
-      
+      imageMain.classList.add('anima');
     };
     imageMain.src = srcMainImages[counter];
+    setTimeout(() => {
+      imageMain.classList.remove('anima');
+    }, 300);
   }
 
   //for modal
@@ -171,8 +178,12 @@ function nextImage() {
     if(counterModal < srcMainImages.length - 1) {
       counterModal += 1;
     };
-    
     imageMainModal.src = srcMainImages[counterModal];
+    
+    //link previous button with current image thumbnail
+    imagesModal.forEach(img => img.classList.remove('active'));
+    const currentImage = imagesModal[counterModal];
+    currentImage.classList.add('active');
   };
 };
 
@@ -180,11 +191,15 @@ btnSlidePrevious.addEventListener('click', previousImage);
 
 function previousImage() {
   //for mobile
-  if(this.className.includes('btn-modal') === false) {
+  if(!this.className.includes('btn-modal')) {
     if(counter > 0) {
       counter -= 1;
+      imageMain.classList.add('anima');
     };
     imageMain.src = srcMainImages[counter];
+    setTimeout(() => {
+      imageMain.classList.remove('anima');
+    }, 300);
   }
 
   //for modal
@@ -192,8 +207,12 @@ function previousImage() {
     if(counterModal > 0) {
       counterModal -= 1;
     };
-    
     imageMainModal.src = srcMainImages[counterModal];
+
+    //link previous button with current image thumbnail
+    imagesModal.forEach(img => img.classList.remove('active'));
+    const currentImage = imagesModal[counterModal];
+    currentImage.classList.add('active');
   };
 };
 

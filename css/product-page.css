@@ -20,17 +20,20 @@
 
 .product-img-main {
   max-width: 410px;
-  cursor: pointer;
   position: relative;
 }
 
 .img-main {
   border-radius: 20px;
+  cursor: pointer;
 }
-/*
-.img-main.ativo {
+
+.img-main.anima {
   animation: slideImage .5s forwards;
-}*/
+}
+.modal .img-main.anima {
+  animation: slideImage .5s forwards;
+}
 
 .product-img-secondary {
   display: flex;
@@ -132,6 +135,7 @@
   border: none;
   background: none;
   padding: 6px 4px;
+  cursor: pointer;
 }
 
 #quantity-amount {
@@ -145,6 +149,7 @@
   gap: 10px;
   flex: 1;
   min-width: 230px;
+  cursor: pointer;
 }
 
 #btn-buy::before {
@@ -178,12 +183,11 @@
   width: 100%;
   padding-top: 130px;
   z-index: 10;
-  
 }
 .product-images.modal.active {
   display: flex;
 }
-.modal .product-img-main, .product-img-secondary {
+.modal .product-img-main, .modal .product-img-secondary {
   margin: 0 auto;
   animation: showModal .5s forwards;
 }
@@ -238,8 +242,14 @@
   .product-img-main {
     max-width: 100%;
   }
+  .img-main {
+    cursor: initial;
+  }
   .product-img-secondary {
     display: none;
+  }
+  .img-main.anima {
+    animation: slideImageBtn .5s forwards;
   }
   .btn-slide {
     display: block;
@@ -274,7 +284,7 @@
 @keyframes slideImage {
   from {
     opacity: 0;
-    transform: translate3d(0, -80px, 0);
+    transform: translate3d(-30px, 0, 0);
   }
   to {
     opacity: 1;
@@ -290,5 +300,14 @@
   to {
     opacity: 1;
     transform: translate3d(0, 0px, 0);
+  }
+}
+
+@keyframes slideImageBtn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
