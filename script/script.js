@@ -126,6 +126,8 @@ imagesModal.forEach((img) => {
   img.addEventListener('click', changeImage);
 });
 
+let counter = 0;
+let counterModal = 0;
 
 function changeImage(){
   const oldSrc = this.firstElementChild.getAttribute('src');
@@ -134,6 +136,7 @@ function changeImage(){
   if(this.className.includes('img-modal')) {
     imagesModal.forEach(img => img.classList.remove('active'));
     imageMainModal.src = src;
+    counterModal = this.firstElementChild.id - 1;
   }else {
     images.forEach(img => img.classList.remove('active'));
     imageMain.src = src;
@@ -157,8 +160,6 @@ const srcMainImages = [
 ];
 
 btnSlideNext.addEventListener('click', nextImage);
-let counter = 0;
-let counterModal = 0;
 
 function nextImage() {
   //for mobile

@@ -160,19 +160,25 @@
   display: none;
   position: absolute;
   top: 50%;
-  padding: 14px 17px;
+  padding: 14px 18px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 100;
 }
 
 .btn-slide.previous{
   left: 15px;
 }
-
 .btn-slide.next{
   right: 15px;
 }
 
+.modal .btn-slide.previous{
+  left: -24px;
+}
+.modal .btn-slide.next{
+  right: -24px;
+}
 
 /*Modal images*/
 .product-images.modal {
@@ -181,8 +187,11 @@
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
   width: 100%;
-  padding-top: 130px;
+  padding-top: 20px;
   z-index: 10;
+}
+.modal .product-img-main {
+  max-width: 500px;
 }
 .product-images.modal.active {
   display: flex;
@@ -194,12 +203,19 @@
 .modal .btn-slide {
   display: block;
 }
+.btn-slide svg path{
+  transition: 0.2s ease-in-out;
+}
+.btn-slide:hover svg path {
+  stroke: var(--cor-p1);
+}
 .img-slide.img-modal {
   background-color: #FFF;
 }
 
 .btn-close-modal {
   display: none;
+  
 }
 .modal .btn-close-modal {
   display: block;
@@ -208,10 +224,17 @@
   top: -40px;
   padding: 0px;
   background: rgba(0, 0, 0, 0.0);
+  cursor: pointer;
 }
-.modal .btn-close-modal img{
+.modal .btn-close-modal svg{
   padding: 0px;
-  width: 24px;
+  width: 24px; 
+}
+.modal .btn-close-modal svg path {
+  transition: 0.3s ease-in-out;
+}
+.modal .btn-close-modal svg:hover path {
+  fill: var(--cor-p1);
 }
 
 /*Medias*/
