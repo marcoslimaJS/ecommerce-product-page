@@ -155,7 +155,7 @@ img {
   #btn-menu {
     display: block;
     position: relative;
-    z-index: 100;
+    z-index: 600;
   }
   .menu li a::after {
     display: none;
@@ -175,7 +175,7 @@ img {
   .menu-nav.active .menu {
     display: flex;
     animation: showMenu .5s forwards;
-    z-index: 3;
+    z-index: 400;
   }
 }
 
