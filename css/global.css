@@ -211,7 +211,7 @@ img {
   background: var(--cor-s5);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: absolute;
-  z-index: 2;
+  z-index: 200;
   border-radius: 5px;
   top: 100px;
   right: 0;
