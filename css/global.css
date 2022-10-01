@@ -288,6 +288,7 @@ img {
 
 .cart-delete {
   align-self: center;
+  cursor: pointer;
 }
 
 .btn-cart-checkout {
@@ -295,6 +296,7 @@ img {
  width: 100%;
  text-align: center;
  margin-bottom: 6px;
+ cursor: pointer;
 }
 
 .cart-empty {

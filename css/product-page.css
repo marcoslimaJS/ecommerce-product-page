@@ -188,7 +188,7 @@
   position: absolute;
   width: 100%;
   padding-top: 20px;
-  z-index: 10;
+  z-index: 300;
 }
 .modal .product-img-main {
   max-width: 500px;
